@@ -33,7 +33,6 @@ let playAgain = "yes";
       calculateWinner();
 
       playAgain = prompt("Would you like to play again? (yes/no)");
-
   }
 
 
