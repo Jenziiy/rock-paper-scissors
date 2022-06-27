@@ -1,4 +1,5 @@
 let playAgain = "yes";
+
   while (playAgain === 'yes') {
       const gameInput = ['Rock','Paper', 'Scissors'];
       const userInput = prompt(`${gameInput[0]}, ${gameInput[1]} or ${gameInput[2]} ?`,`${gameInput[0]}`);
