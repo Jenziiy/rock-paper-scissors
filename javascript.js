@@ -28,7 +28,6 @@ let playAgain = "yes";
       }
 
       let gameOutcome = score => alert(gameOutput[score])
-
       computerPlay();
       alert(compInput);
       calculateWinner();
