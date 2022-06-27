@@ -1,38 +1,43 @@
 let playAgain = "yes";
+let counter = 0;
+let winCount = 0;
 
-  while (playAgain === 'yes') {
-      const gameInput = ['Rock','Paper', 'Scissors'];
-      const userInput = prompt(`${gameInput[0]}, ${gameInput[1]} or ${gameInput[2]} ?`,`${gameInput[0]}`);
-      let compInput = undefined;
+  while (counter < 5 ) {
+      const gameInput = ['rock','paper', 'scissors'];
+      const playerSelection = prompt(`${gameInput[0]}, ${gameInput[1]} or ${gameInput[2]} ?`,`${gameInput[0]}`).toLowerCase();
+      const computerSelection = computerPlay().toLowerCase();
+      const gameOutcome = score => alert(gameOutput[score])
       const gameOutput = ['you won!', 'you lost :( ', 'it\'s a tie!!!!'];
 
-      alert(`you chose ${userInput}, lets see what the computer chose.. `);
+      alert(`you chose ${playerSelection}, lets see what the computer chose.. `);
 
-      function computerPlay () {
-      return compInput = gameInput[Math.floor(Math.random()*gameInput.length)];
-      }
+      function computerPlay () { return gameInput[Math.floor(Math.random()*gameInput.length)]; }
+      
 
-      function calculateWinner() {
+      function playRound(playerSelection, computerSelection) {
         switch(true) {
-          case userInput == compInput :
+          case playerSelection === computerSelection :
         gameOutcome(2);
         break;
-        case userInput == gameInput[1]  && compInput == gameInput[0] ||
-        userInput == gameInput[0]  && compInput == gameInput[2] ||
-          userInput == gameInput[2]  && compInput == gameInput[1] :
+        case playerSelection == gameInput[1]  && computerSelection == gameInput[0] ||
+        playerSelection == gameInput[0]  && computerSelection == gameInput[2] ||
+          playerSelection == gameInput[2]  && computerSelection == gameInput[1] :
           gameOutcome(0);
+          winCount ++;
         break;
         default:
         gameOutcome(1);
         }
+        return winCount;
       }
 
-      let gameOutcome = score => alert(gameOutput[score])
+    
       computerPlay();
-      alert(compInput);
-      calculateWinner();
-
-      playAgain = prompt("Would you like to play again? (yes/no)");
+      alert(computerSelection);
+      playRound(playerSelection, computerSelection);
+      counter ++;
+      alert(`This was try ${counter} out of 5 total, you won a total of ${winCount}`);
+      // playAgain = prompt("Would you like to play again? (yes/no)");
   }
 
 
