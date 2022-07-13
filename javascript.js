@@ -1,8 +1,12 @@
 let counter = 0;
 let winCount = 0;
 
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+
 function game(){
-  for(i = 0; i < 5; i++){
       const gameInput = ['rock','paper', 'scissors'];
       const playerSelection = prompt(`${gameInput[0]}, ${gameInput[1]} or ${gameInput[2]} ?`,`${gameInput[0]}`).toLowerCase();
       const computerSelection = computerPlay().toLowerCase();
@@ -35,9 +39,7 @@ function game(){
       alert(computerSelection);
       playRound(playerSelection, computerSelection);
       counter ++;
-      alert(`This was try ${counter} out of 5 total, you won a total of ${winCount}`);
-  } 
-}
+  }
 
 game();
 

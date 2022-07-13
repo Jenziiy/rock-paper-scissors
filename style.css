@@ -1,0 +1,19 @@
+div {
+display: flex;
+flex: 1;
+justify-content:center;
+height: 80vh;
+align-items: center;
+gap: 2rem;
+
+
+}
+button {
+  background-color: hotpink;
+  color: white;
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 10%;
+  justify-content: center;
+  align-content: center;
+}
