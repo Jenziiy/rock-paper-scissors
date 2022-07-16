@@ -1,19 +1,32 @@
 let counter = 0;
 let winCount = 0;
+let playerSelection;
+let computerSelection;
 
 function game(){
-
+  
       const gameInput = ['rock','paper', 'scissors'];
       //const playerSelection = prompt(`${gameInput[0]}, ${gameInput[1]} or ${gameInput[2]} ?`,`${gameInput[0]}`).toLowerCase();
       
       function getPlayerChoice () {
-       document.querySelectorAll('button').forEach(btn => btn.addEventListener('click', async () => { console.log(`you chose ${btn.textContent}, lets see what the computer chose.. `)}));
-      }
+        const buttons = document.querySelectorAll('.button');
+        
+          buttons.forEach(btn => btn.addEventListener('click', () => {
+            playerSelection = btn.textContent;
+            console.log('hello player you played '+ playerSelection);
 
-      function getComputerChoice() { return console.log(gameInput[Math.floor(Math.random()*gameInput.length)]);}
+      }))
+      playRound(playerSelection, computerSelection);
+    };
+      
+      
+      function getComputerChoice() { return gameInput[Math.floor(Math.random()*gameInput.length)];}
       
 
       function playRound(playerSelection, computerSelection) {
+        computerSelection = getComputerChoice();
+        console.log(' the computer played ' + computerSelection)
+        //playerSelection = getPlayerChoice();
         const gameOutput = ['you won!', 'you lost :( ', 'it\'s a tie!!!!'];
         const gameOutcome = score => console.log(gameOutput[score]);
         switch(true) {
@@ -31,15 +44,14 @@ function game(){
         }
         return winCount;
       }
-      const playerSelection_btn = getPlayerChoice();
-      const computerSelection = getComputerChoice();
-      playRound(playerSelection_btn, computerSelection);
+
+      getPlayerChoice();
       counter ++;
       console.log(`This was try ${counter} out of 5 total, you won a total of ${winCount}`);
 
 }
-
-game();
+document.querySelector('body').addEventListener('click', game);
+//game();
 
 
 
