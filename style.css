@@ -1,11 +1,10 @@
-div {
+#button-container {
 display: flex;
 flex: 1;
 justify-content:center;
 height: 80vh;
 align-items: center;
 gap: 2rem;
-
 
 }
 button {
@@ -15,5 +14,17 @@ button {
   height: 6.5rem;
   border-radius: 10%;
   justify-content: center;
+  align-content: center;
+}
+
+#text-container {
+  display: flex;
+  flex: 1; 
+  flex-flow:column;
+  width: 74%;
+  min-height: 150px;
+  background-color: antiquewhite;
+  border: groove pink 9px;
+  margin: -10% 0 0 12.6%;
   align-content: center;
 }
